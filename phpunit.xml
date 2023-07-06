@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="vendor/autoload.php"
-         backupGlobals="false"
-         backupStaticAttributes="false"
-         colors="true"
-         verbose="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false">
-    <testsuites>
-        <testsuite name="HereGeocoder Test Suite">
-            <directory>tests</directory>
-        </testsuite>
-    </testsuites>
-    <filter>
-        <whitelist>
-            <directory suffix=".php">src/</directory>
-        </whitelist>
-    </filter>
-    <php>
-        <env name="HERE_API_ID" value="IwNTBwT8bWmyUWnpzrb6" />
-        <env name="HERE_APP_CODE" value="P0n92Celle7aIrI-RQKZhQ" />
-    </php>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="vendor/autoload.php" backupGlobals="false" colors="true" processIsolation="false" stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.3/phpunit.xsd" cacheDirectory=".phpunit.cache" backupStaticProperties="false">
+  <coverage/>
+  <testsuites>
+    <testsuite name="HereGeocoder Test Suite">
+      <directory>tests</directory>
+    </testsuite>
+  </testsuites>
+  <php>
+    <env name="HERE_API_ID" value="IwNTBwT8bWmyUWnpzrb6"/>
+    <env name="HERE_APP_CODE" value="P0n92Celle7aIrI-RQKZhQ"/>
+  </php>
+  <source>
+    <include>
+      <directory suffix=".php">src/</directory>
+    </include>
+  </source>
 </phpunit>

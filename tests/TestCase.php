@@ -2,21 +2,34 @@
 
 namespace Thiagoprz\HereGeocoder\Test;
 
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use Thiagoprz\HereGeocoder\HereGeocoder;
+use Orchestra\Testbench\Concerns\CreatesApplication;
 use Thiagoprz\HereGeocoder\HereGeocoderServiceProvider;
-use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
-
-class TestCase extends OrchestraTestCase
+abstract class TestCase extends BaseTestCase
 {
+    use CreatesApplication;
 
-    /**
-     * Load package service provider
-     * @param \Illuminate\Foundation\Application $app
-     * @return Thiagoprz\HereGeocoder\HereGeocoderServiceProvider
-     */
-    protected function getPackageProviders($app)
+    protected $hereGeocoder;
+
+    public function setUp(): void
     {
-        return [HereGeocoderServiceProvider::class];
+        parent::setUp();
+        $this->hereGeocoder = new HereGeocoder();
+    }
+
+    public function getPackageProviders(
+        $app
+    ): array {
+        return [
+            HereGeocoderServiceProvider::class,
+        ];
+    }
+
+    public function getEnvironmentSetUp($app)
+    {
+      //
     }
 
 }

@@ -37,7 +37,10 @@ class HereGeocoder
             $url = $url . '?' . http_build_query($params);
         }
         $data = $client->request('GET', $url);
-        return json_decode($data->getBody());
+        $output = json_decode($data->getBody());
+
+        $output->Response->View = $output->Response->View[0];
+        return $output;
     }
 
     /**
